@@ -11,7 +11,7 @@ use vars qw($VERSION @ISA @EXPORT_OK);
 
 @EXPORT_OK = qw();
 
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 bootstrap Lingua::TH::Segmentation $VERSION;
 
@@ -47,7 +47,9 @@ sub cut {
 
 sub DESTROY {
 	my $self=shift;
-	$self->destroy_wc($self->{wc});
+	#print "exists:".exists($self->{wc});
+	#print $self->wordcut($self->{wc},'äÍéºéÒ');
+	#$self->destroy_wc($self->{wc});
 }
 
 1;
