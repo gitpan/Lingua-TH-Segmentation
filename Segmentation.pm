@@ -11,7 +11,7 @@ use vars qw($VERSION @ISA @EXPORT_OK);
 
 @EXPORT_OK = qw();
 
-$VERSION = '0.021';
+$VERSION = '0.03';
 
 bootstrap Lingua::TH::Segmentation $VERSION;
 
