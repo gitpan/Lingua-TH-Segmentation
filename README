@@ -14,6 +14,10 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
+(should compile from the source)
+
+glib-2.0
+Libthai (http://linux.thai.net/libthai)
 TH word segmentation library (http://thaiwordseg.sourceforge.net)
 
 COPYRIGHT AND LICENCE

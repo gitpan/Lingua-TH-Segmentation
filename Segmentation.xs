@@ -37,9 +37,10 @@ gchar* wordcut(package,wc,str);
 	char* package;
 	Lingua::TH::Segmentation::wc wc;
 	gchar* str;
-	CODE:
+	PREINIT:
 		char* delimiter;
 		gchar* xyz;
+	CODE:
 		delimiter = "#K_=";
 		strcpy(wc->print.delimiter,delimiter);
 		xyz =(gchar*) wc_wordcut_cutline(wc,str,strlen(str));
@@ -52,8 +53,9 @@ gchar* string_separate(package,wc,str,separator);
 	Lingua::TH::Segmentation::wc wc;
 	gchar* str;
 	char* separator
-	CODE:
+	PREINIT:
 		gchar* xyz;
+	CODE:
 		strcpy(wc->print.delimiter,separator);
 		xyz =(gchar*) wc_wordcut_cutline(wc,str,strlen(str));
 		RETVAL = xyz;
