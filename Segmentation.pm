@@ -11,7 +11,7 @@ use vars qw($VERSION @ISA @EXPORT_OK);
 
 @EXPORT_OK = qw();
 
-$VERSION = '0.07';
+$VERSION = '0.08';
 
 bootstrap Lingua::TH::Segmentation $VERSION;
 
@@ -36,13 +36,23 @@ sub cut_raw {
 sub cut_no_space {
 	my $self=shift;
 	my $tmp=$self->wordcut($self->{wc},$_[0]);
-	split(/#K_=|\s+/,$tmp);
+	my @result;
+	foreach (split(/#K_=|\s+/,$tmp)) {
+		push @result,$_ if defined $_;
+	}
+
+	@result;
 }
 
 sub cut {
 	my $self=shift;
 	my $tmp=$self->wordcut($self->{wc},$_[0]);
-	split(/#K_=|(\s+)/,$tmp);
+	my @result;
+	foreach (split(/#K_=|(\s+)/,$tmp)) {
+		push @result,$_ if defined $_;
+	}
+
+	@result;
 }
 
 sub DESTROY {
